@@ -3,8 +3,9 @@ package com.facade.model;
 import com.facade.imodel.Schedule;
 
 /**
- *
+ * 08/set/2022
  * @author andrebronca
+ * O livro não implementa essa classe
  */
 public class ScheduleServer implements Schedule {
 
