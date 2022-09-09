@@ -1,0 +1,36 @@
+@startuml
+annotation java.lang.Override
+class com.observer.app.TestObserver
+class com.observer.impl.CommentaryObject
+class com.observer.impl.SMSUsers
+class com.observer.nativo_java.CommentaryObjectObsrevable
+class com.observer.nativo_java.SMSUsersObserver
+class com.observer.nativo_java.Test
+class java.util.ArrayList
+class java.util.List
+class java.util.Observable
+interface com.observer.interfaces.Commentary
+interface com.observer.interfaces.Observer
+interface com.observer.interfaces.Subject
+interface java.util.Observer
+com.observer.app.TestObserver ..> com.observer.impl.CommentaryObject
+com.observer.app.TestObserver ..> com.observer.impl.SMSUsers
+com.observer.app.TestObserver ..> java.util.ArrayList
+com.observer.app.TestObserver ..> com.observer.interfaces.Commentary
+com.observer.app.TestObserver ..> com.observer.interfaces.Observer
+com.observer.app.TestObserver ..> com.observer.interfaces.Subject
+com.observer.impl.CommentaryObject ..> java.lang.Override
+com.observer.impl.CommentaryObject ..> java.util.List
+com.observer.impl.CommentaryObject --|> com.observer.interfaces.Commentary
+com.observer.impl.CommentaryObject ..> com.observer.interfaces.Observer
+com.observer.impl.CommentaryObject --|> com.observer.interfaces.Subject
+com.observer.impl.SMSUsers ..> java.lang.Override
+com.observer.impl.SMSUsers --|> com.observer.interfaces.Observer
+com.observer.impl.SMSUsers ..> com.observer.interfaces.Subject
+com.observer.nativo_java.CommentaryObjectObsrevable ..> java.lang.Override
+com.observer.nativo_java.CommentaryObjectObsrevable --|> java.util.Observable
+com.observer.nativo_java.CommentaryObjectObsrevable --|> com.observer.interfaces.Commentary
+com.observer.nativo_java.SMSUsersObserver ..> java.lang.Override
+com.observer.nativo_java.SMSUsersObserver ..> java.util.Observable
+com.observer.nativo_java.SMSUsersObserver --|> java.util.Observer
+@enduml
