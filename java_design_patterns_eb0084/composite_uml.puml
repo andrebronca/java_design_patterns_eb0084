@@ -1,0 +1,16 @@
+@startuml
+abstract class com.composite.HtmlTag
+annotation java.lang.Override
+class com.composite.HtmlElement
+class com.composite.HtmlParentElement
+class com.composite.TestCompositePattern
+class java.util.ArrayList
+class java.util.List
+com.composite.HtmlTag ..> java.util.List
+com.composite.HtmlElement --|> com.composite.HtmlTag
+com.composite.HtmlElement ..> java.lang.Override
+com.composite.HtmlParentElement --|> com.composite.HtmlTag
+com.composite.HtmlParentElement ..> java.lang.Override
+com.composite.HtmlParentElement ..> java.util.ArrayList
+com.composite.HtmlParentElement ..> java.util.List
+@enduml

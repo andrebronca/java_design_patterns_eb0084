@@ -1,0 +1,15 @@
+@startuml
+annotation java.lang.Override
+class com.adapter.site.RunAdapterExample
+class com.adapter.site.XpayImpl
+class com.adapter.site.XpayToPayDAdapter
+interface com.adapter.payd.PayD
+interface com.adapter.xpay.Xpay
+com.adapter.site.RunAdapterExample ..> com.adapter.payd.PayD
+com.adapter.site.RunAdapterExample ..> com.adapter.xpay.Xpay
+com.adapter.site.XpayImpl ..> java.lang.Override
+com.adapter.site.XpayImpl --|> com.adapter.xpay.Xpay
+com.adapter.site.XpayToPayDAdapter ..> java.lang.Override
+com.adapter.site.XpayToPayDAdapter --|> com.adapter.payd.PayD
+com.adapter.site.XpayToPayDAdapter ..> com.adapter.xpay.Xpay
+@enduml

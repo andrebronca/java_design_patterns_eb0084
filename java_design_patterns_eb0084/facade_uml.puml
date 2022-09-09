@@ -1,0 +1,11 @@
+@startuml
+annotation java.lang.Override
+class com.facade.ScheduleServerFacade
+class com.facade.TestFacade
+class com.facade.model.ScheduleServer
+interface com.facade.imodel.Schedule
+com.facade.ScheduleServerFacade ..> com.facade.model.ScheduleServer
+com.facade.TestFacade ..> com.facade.model.ScheduleServer
+com.facade.model.ScheduleServer ..> java.lang.Override
+com.facade.model.ScheduleServer --|> com.facade.imodel.Schedule
+@enduml
