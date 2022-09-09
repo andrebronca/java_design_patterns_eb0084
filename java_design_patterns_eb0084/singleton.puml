@@ -1,0 +1,14 @@
+@startuml
+annotation java.lang.Override
+class com.singleton.example01.SingletonEager
+class com.singleton.example02.SingletonLazy
+class com.singleton.example03.SingletonLazyMultithread
+class com.singleton.example04.SingletonLazyDoubleCheck
+class com.singleton.example05.Singleton
+class com.singleton.example06.SingletonEnum
+class java.io.ObjectStreamException
+interface java.io.Serializable
+com.singleton.example05.Singleton ..> java.lang.Override
+com.singleton.example05.Singleton ..> java.io.ObjectStreamException
+com.singleton.example05.Singleton --|> java.io.Serializable
+@enduml
