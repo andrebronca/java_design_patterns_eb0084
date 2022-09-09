@@ -1,0 +1,27 @@
+@startuml
+abstract class com.bridge.abstracts.Car
+annotation java.lang.Override
+class com.bridge.implement.BigWeel
+class com.bridge.implement.CentralLocking
+class com.bridge.implement.GearLocking
+class com.bridge.implement.Motoren
+class com.bridge.test.TestBridgePattern
+interface com.bridge.interfaces.Product
+com.bridge.abstracts.Car ..> com.bridge.interfaces.Product
+com.bridge.implement.BigWeel --|> com.bridge.abstracts.Car
+com.bridge.implement.BigWeel ..> java.lang.Override
+com.bridge.implement.BigWeel ..> com.bridge.interfaces.Product
+com.bridge.implement.CentralLocking ..> java.lang.Override
+com.bridge.implement.CentralLocking --|> com.bridge.interfaces.Product
+com.bridge.implement.GearLocking ..> java.lang.Override
+com.bridge.implement.GearLocking --|> com.bridge.interfaces.Product
+com.bridge.implement.Motoren --|> com.bridge.abstracts.Car
+com.bridge.implement.Motoren ..> java.lang.Override
+com.bridge.implement.Motoren ..> com.bridge.interfaces.Product
+com.bridge.test.TestBridgePattern ..> com.bridge.abstracts.Car
+com.bridge.test.TestBridgePattern ..> com.bridge.implement.BigWeel
+com.bridge.test.TestBridgePattern ..> com.bridge.implement.CentralLocking
+com.bridge.test.TestBridgePattern ..> com.bridge.implement.GearLocking
+com.bridge.test.TestBridgePattern ..> com.bridge.implement.Motoren
+com.bridge.test.TestBridgePattern ..> com.bridge.interfaces.Product
+@enduml
