@@ -1,0 +1,149 @@
+@startuml 
+class com.mediator.app.TestMediator
+class com.mediator.characteristics.Motor{
+    + void startMotor()
+    + void rotateDrum(int rpm)
+}
+class com.mediator.characteristics.Sensor{
+    + boolean checkTemperature(int temperature)
+}
+class com.mediator.characteristics.SoilRemoval{
+    + void low()
+    + void medium()
+    + void high()
+}
+class com.mediator.colleagues.Button{
+    - MachineMediator mediator
+    + void setMediator(MachineMediator mediato)
+    + void press()
+        mediator.start() 
+}
+class com.mediator.colleagues.Heater{
+    - MachineMediator mediator
+    + void setMediator(MachineMediator mediator)
+    + void on(int temperature){
+        if (mediator.checkTemperature(temperature))
+            mediator.off()
+    
+    + void off()
+        mediator.wash()
+}
+class com.mediator.colleagues.Machine{
+    - MachineMediator mediator
+    + void setMediator(MachineMediator mediator)
+    + void start()
+        mediator.open()
+    + void wash()
+        mediator.wash()
+}
+class com.mediator.colleagues.Valve{
+    - MachineMediator mediator
+    + void setMediator(MachineMediator mediator)
+    + void open()
+        mediator.closed()
+    + void closed()
+        mediator.on()
+}
+class com.mediator.implementor.CottonMediator{
+    - final Machine machine
+    - final Heater heater
+    - final Motor motor
+    - final Sensor sensor
+    - final SoilRemoval soilRemoval
+    - final Valve valve
+    + CottonMediator(Machine machine, Heater heater, Motor motor, Sensor sensor, SoilRemoval soilRemoval, Valve valve)
+    + void start()
+        machine.start()
+    + void wash()
+        motor.startMotor()
+        motor.rotateDrum(700)
+        System.out.println("Adding detergent")
+        soilRemoval.low()
+        System.out.println("Adding softener")
+    + void open()
+        valve.open()
+    + void closed()
+        valve.closed()
+    + void on()
+        heater.on(40)
+    + void off()
+        heater.off()
+    + boolean checkTemperature(int temperature)
+        return sensor.checkTemperature(temperature)
+}
+class com.mediator.implementor.DenimMediator{
+    - final Machine machine
+    - final Heater heater
+    - final Motor motor
+    - final Sensor sensor
+    - final SoilRemoval soilRemoval
+    - final Valve valve
+    + DenimMediator(Machine machine, Heater heater, Motor motor, Sensor sensor, SoilRemoval soilRemoval, Valve valve)
+    + void start()
+        machine.start()
+    + void wash()
+        motor.startMotor()
+        motor.rotateDrum(1400)
+        soilRemoval.medium()
+    + void open()
+        valve.open()
+    + void closed()
+        valve.closed()
+    + void on()
+        heater.on(30)
+    + void off()
+        heater.off()
+    + boolean checkTemperature(int temperature)
+        return sensor.checkTemperature(temperature)
+}
+interface com.mediator.interfaces.Colleague{
+    + void setMediator(MachineMediator mediator)
+}
+interface com.mediator.interfaces.MachineMediator {
+    + void start()
+    + void wash()
+    + void open()
+    + void closed()
+    + void on()
+    + void off()
+    + boolean checkTemperature(int temperature)
+}
+com.mediator.app.TestMediator ..> com.mediator.characteristics.Motor
+com.mediator.app.TestMediator ..> com.mediator.characteristics.Sensor
+com.mediator.app.TestMediator ..> com.mediator.characteristics.SoilRemoval
+com.mediator.app.TestMediator ..> com.mediator.colleagues.Button
+com.mediator.app.TestMediator ..> com.mediator.colleagues.Heater
+com.mediator.app.TestMediator ..> com.mediator.colleagues.Machine
+com.mediator.app.TestMediator ..> com.mediator.colleagues.Valve
+com.mediator.app.TestMediator ..> com.mediator.implementor.CottonMediator
+com.mediator.app.TestMediator ..> com.mediator.implementor.DenimMediator
+com.mediator.app.TestMediator ..> com.mediator.interfaces.MachineMediator
+
+com.mediator.colleagues.Button --|> com.mediator.interfaces.Colleague
+com.mediator.colleagues.Button ..> com.mediator.interfaces.MachineMediator
+
+com.mediator.colleagues.Heater --|> com.mediator.interfaces.Colleague
+com.mediator.colleagues.Heater ..> com.mediator.interfaces.MachineMediator
+
+com.mediator.colleagues.Machine --|> com.mediator.interfaces.Colleague
+com.mediator.colleagues.Machine ..> com.mediator.interfaces.MachineMediator
+
+com.mediator.colleagues.Valve --|> com.mediator.interfaces.Colleague
+com.mediator.colleagues.Valve ..> com.mediator.interfaces.MachineMediator
+
+com.mediator.implementor.CottonMediator ..> com.mediator.characteristics.Motor
+com.mediator.implementor.CottonMediator ..> com.mediator.characteristics.Sensor
+com.mediator.implementor.CottonMediator ..> com.mediator.characteristics.SoilRemoval
+com.mediator.implementor.CottonMediator ..> com.mediator.colleagues.Heater
+com.mediator.implementor.CottonMediator ..> com.mediator.colleagues.Machine
+com.mediator.implementor.CottonMediator ..> com.mediator.colleagues.Valve
+com.mediator.implementor.CottonMediator --|> com.mediator.interfaces.MachineMediator
+
+com.mediator.implementor.DenimMediator ..> com.mediator.characteristics.Motor
+com.mediator.implementor.DenimMediator ..> com.mediator.characteristics.Sensor
+com.mediator.implementor.DenimMediator ..> com.mediator.characteristics.SoilRemoval
+com.mediator.implementor.DenimMediator ..> com.mediator.colleagues.Heater
+com.mediator.implementor.DenimMediator ..> com.mediator.colleagues.Machine
+com.mediator.implementor.DenimMediator ..> com.mediator.colleagues.Valve
+com.mediator.implementor.DenimMediator --|> com.mediator.interfaces.MachineMediator
+@enduml
