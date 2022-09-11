@@ -1,0 +1,16 @@
+@startuml
+class com.remote.proxy.ReportGeneratorClient
+class com.remote.proxy.ReportGeneratorImpl
+class com.remote.proxy.UnicastRemoreObject
+class java.rmi.Naming
+class java.rmi.RemoteException
+interface com.remote.proxy.ReportGenerator
+interface java.rmi.Remote
+com.remote.proxy.ReportGeneratorClient ..> java.rmi.Naming
+com.remote.proxy.ReportGeneratorImpl --|> com.remote.proxy.UnicastRemoreObject
+com.remote.proxy.ReportGeneratorImpl ..> java.rmi.Naming
+com.remote.proxy.ReportGeneratorImpl ..> java.rmi.RemoteException
+com.remote.proxy.ReportGeneratorImpl --|> com.remote.proxy.ReportGenerator
+com.remote.proxy.ReportGenerator ..> java.rmi.RemoteException
+com.remote.proxy.ReportGenerator --|> java.rmi.Remote
+@enduml
