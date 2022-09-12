@@ -1,0 +1,20 @@
+@startuml
+class com.virtual.proxy.Company
+class com.virtual.proxy.ContactListImpl
+class com.virtual.proxy.ContactListProxyImpl
+class com.virtual.proxy.Employee
+class com.virtual.proxy.TestVirtualProxy
+class java.util.ArrayList
+class java.util.List
+interface com.virtual.proxy.ContactList
+com.virtual.proxy.ContactListImpl ..> java.util.ArrayList
+com.virtual.proxy.ContactListImpl ..> java.util.List
+com.virtual.proxy.ContactListImpl --|> com.virtual.proxy.ContactList
+com.virtual.proxy.ContactListProxyImpl ..> java.util.List
+com.virtual.proxy.ContactListProxyImpl --|> com.virtual.proxy.ContactList
+com.virtual.proxy.TestVirtualProxy ..> java.util.List
+com.virtual.proxy.ContactList ..> java.util.List
+com.virtual.proxy.Company --|> com.virtual.proxy.ContactList
+com.virtual.proxy.TestVirtualProxy -- com.virtual.proxy.Company
+com.virtual.proxy.TestVirtualProxy -- com.virtual.proxy.ContactList
+@enduml

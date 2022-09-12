@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import java.util.Date;
 
 /**
- *
+ * 11/set/2022
  * @author andrebronca
  * Até o momento não há uma implementação completa para demonstrar: UnicastRemoteObject
  */

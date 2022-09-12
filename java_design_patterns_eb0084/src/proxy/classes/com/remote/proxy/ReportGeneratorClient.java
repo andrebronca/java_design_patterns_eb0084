@@ -3,7 +3,7 @@ package com.remote.proxy;
 import java.rmi.Naming;
 
 /**
- *
+ * 11/set/2022
  * @author andrebronca
  */
 public class ReportGeneratorClient {
