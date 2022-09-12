@@ -1,0 +1,25 @@
+@startuml
+class com.chain.responsibility.AudioFileHandler
+class com.chain.responsibility.DocFileHandler
+class com.chain.responsibility.ExcelFileHandler
+class com.chain.responsibility.FileToChain
+class com.chain.responsibility.ImageFileHandler
+class com.chain.responsibility.TestChainOfResponsibility
+class com.chain.responsibility.TextFileHandler
+class com.chain.responsibility.VideoFileHandler
+interface com.chain.responsibility.Handler
+com.chain.responsibility.TestChainOfResponsibility --> com.chain.responsibility.FileToChain
+com.chain.responsibility.TestChainOfResponsibility --> com.chain.responsibility.Handler
+com.chain.responsibility.AudioFileHandler ..> com.chain.responsibility.FileToChain
+com.chain.responsibility.AudioFileHandler --|> com.chain.responsibility.Handler
+com.chain.responsibility.DocFileHandler ..> com.chain.responsibility.FileToChain
+com.chain.responsibility.DocFileHandler --|> com.chain.responsibility.Handler
+com.chain.responsibility.ExcelFileHandler ..> com.chain.responsibility.FileToChain
+com.chain.responsibility.ExcelFileHandler --|> com.chain.responsibility.Handler
+com.chain.responsibility.ImageFileHandler ..> com.chain.responsibility.FileToChain
+com.chain.responsibility.ImageFileHandler --|> com.chain.responsibility.Handler
+com.chain.responsibility.TextFileHandler ..> com.chain.responsibility.FileToChain
+com.chain.responsibility.TextFileHandler --|> com.chain.responsibility.Handler
+com.chain.responsibility.VideoFileHandler ..> com.chain.responsibility.FileToChain
+com.chain.responsibility.VideoFileHandler --|> com.chain.responsibility.Handler
+@enduml

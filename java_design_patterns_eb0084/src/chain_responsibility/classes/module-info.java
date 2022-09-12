@@ -1,0 +1,3 @@
+
+module chain_responsibility {
+}
