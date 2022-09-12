@@ -1,0 +1,9 @@
+@startuml
+annotation java.lang.Override
+class com.example.Code
+class com.example.JavaPlatform
+class com.example.TestPlatform
+interface com.example.Platform
+com.example.JavaPlatform ..> java.lang.Override
+com.example.JavaPlatform --|> com.example.Platform
+@enduml

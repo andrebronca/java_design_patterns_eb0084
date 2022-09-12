@@ -1,0 +1,28 @@
+@startuml
+annotation java.lang.Override
+class com.example.Code
+class com.example.JavaPlatform
+class com.flyweight.CPPPlatform
+class com.flyweight.CPlatform
+class com.flyweight.PlatformFactory
+class com.flyweight.RubyPlatform
+class com.flyweight.TestFlyweight
+class java.util.HashMap
+class java.util.Map
+interface com.example.Platform
+com.flyweight.CPPPlatform ..> java.lang.Override
+com.flyweight.CPPPlatform ..> com.example.Code
+com.flyweight.CPPPlatform --|> com.example.Platform
+com.flyweight.CPlatform ..> java.lang.Override
+com.flyweight.CPlatform ..> com.example.Code
+com.flyweight.CPlatform --|> com.example.Platform
+com.flyweight.PlatformFactory ..> com.example.JavaPlatform
+com.flyweight.PlatformFactory ..> java.util.HashMap
+com.flyweight.PlatformFactory ..> java.util.Map
+com.flyweight.PlatformFactory ..> com.example.Platform
+com.flyweight.RubyPlatform ..> java.lang.Override
+com.flyweight.RubyPlatform ..> com.example.Code
+com.flyweight.RubyPlatform --|> com.example.Platform
+com.flyweight.TestFlyweight ..> com.example.Code
+com.flyweight.TestFlyweight ..> com.example.Platform
+@enduml
