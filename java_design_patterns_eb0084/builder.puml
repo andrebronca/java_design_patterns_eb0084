@@ -1,0 +1,10 @@
+@startuml
+class com.builder.Car
+class com.builder.CarDirector
+class com.builder.SedanCarBuilder
+class com.builder.SportsCarBuilder
+class com.builder.TestBuildPattern
+interface com.builder.CarBuilder
+com.builder.SedanCarBuilder --|> com.builder.CarBuilder
+com.builder.SportsCarBuilder --|> com.builder.CarBuilder
+@enduml

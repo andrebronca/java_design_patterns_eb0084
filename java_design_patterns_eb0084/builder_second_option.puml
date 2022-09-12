@@ -1,0 +1,5 @@
+@startuml
+class com.another.builder.Form
+class com.another.builder.FormBuilder
+com.another.builder.Form -- com.another.builder.FormBuilder
+@enduml
