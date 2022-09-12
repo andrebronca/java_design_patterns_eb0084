@@ -1,0 +1,15 @@
+@startuml
+class com.protection.proxy.Employee
+class com.protection.proxy.Owner
+class com.protection.proxy.ReportGeneratorProtectionProxy
+class com.protection.proxy.TestProtectionProxy
+class com.remote.proxy.ReportGenerator
+class java.rmi.Naming
+interface com.protection.proxy.ReportGeneratorProxy
+interface com.protection.proxy.Staff
+com.protection.proxy.Employee --|> com.protection.proxy.Staff
+com.protection.proxy.Owner --|> com.protection.proxy.Staff
+com.protection.proxy.ReportGeneratorProtectionProxy ..> com.remote.proxy.ReportGenerator
+com.protection.proxy.ReportGeneratorProtectionProxy ..> java.rmi.Naming
+com.protection.proxy.ReportGeneratorProtectionProxy --|> com.protection.proxy.ReportGeneratorProxy
+@enduml
