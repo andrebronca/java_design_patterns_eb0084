@@ -1,0 +1,42 @@
+@startuml
+class com.abstract_factory.app.TestAbstractFactoryPattern
+class com.abstract_factory.concretes.NYErrorXMLParser
+class com.abstract_factory.concretes.NYFeedbackXMLParser
+class com.abstract_factory.concretes.NYOrderXMLParser
+class com.abstract_factory.concretes.NYResponseXMLParser
+class com.abstract_factory.concretes.TWErrorXMLParser
+class com.abstract_factory.concretes.TWFeedbackXMLParser
+class com.abstract_factory.concretes.TWOrderXMLParser
+class com.abstract_factory.concretes.TWResponseXMLParser
+class com.abstract_factory.factory_clients.NYParserFactory
+class com.abstract_factory.factory_clients.TWParserFactory
+class com.abstract_factory.producer.ParserFactoryProducer
+interface com.abstract_factory.interfaces.AbstractParserFactory
+interface com.abstract_factory.interfaces.XMLParser
+com.abstract_factory.app.TestAbstractFactoryPattern ..> com.abstract_factory.producer.ParserFactoryProducer
+com.abstract_factory.app.TestAbstractFactoryPattern ..> com.abstract_factory.interfaces.AbstractParserFactory
+com.abstract_factory.app.TestAbstractFactoryPattern ..> com.abstract_factory.interfaces.XMLParser
+com.abstract_factory.concretes.NYErrorXMLParser --|> com.abstract_factory.interfaces.XMLParser
+com.abstract_factory.concretes.NYFeedbackXMLParser --|> com.abstract_factory.interfaces.XMLParser
+com.abstract_factory.concretes.NYOrderXMLParser --|> com.abstract_factory.interfaces.XMLParser
+com.abstract_factory.concretes.NYResponseXMLParser --|> com.abstract_factory.interfaces.XMLParser
+com.abstract_factory.concretes.TWErrorXMLParser --|> com.abstract_factory.interfaces.XMLParser
+com.abstract_factory.concretes.TWFeedbackXMLParser --|> com.abstract_factory.interfaces.XMLParser
+com.abstract_factory.concretes.TWOrderXMLParser --|> com.abstract_factory.interfaces.XMLParser
+com.abstract_factory.concretes.TWResponseXMLParser --|> com.abstract_factory.interfaces.XMLParser
+com.abstract_factory.factory_clients.NYParserFactory ..> com.abstract_factory.concretes.NYErrorXMLParser
+com.abstract_factory.factory_clients.NYParserFactory ..> com.abstract_factory.concretes.NYFeedbackXMLParser
+com.abstract_factory.factory_clients.NYParserFactory ..> com.abstract_factory.concretes.NYOrderXMLParser
+com.abstract_factory.factory_clients.NYParserFactory ..> com.abstract_factory.concretes.NYResponseXMLParser
+com.abstract_factory.factory_clients.NYParserFactory --|> com.abstract_factory.interfaces.AbstractParserFactory
+com.abstract_factory.factory_clients.NYParserFactory ..> com.abstract_factory.interfaces.XMLParser
+com.abstract_factory.factory_clients.TWParserFactory ..> com.abstract_factory.concretes.TWErrorXMLParser
+com.abstract_factory.factory_clients.TWParserFactory ..> com.abstract_factory.concretes.TWFeedbackXMLParser
+com.abstract_factory.factory_clients.TWParserFactory ..> com.abstract_factory.concretes.TWOrderXMLParser
+com.abstract_factory.factory_clients.TWParserFactory ..> com.abstract_factory.concretes.TWResponseXMLParser
+com.abstract_factory.factory_clients.TWParserFactory --|> com.abstract_factory.interfaces.AbstractParserFactory
+com.abstract_factory.factory_clients.TWParserFactory ..> com.abstract_factory.interfaces.XMLParser
+com.abstract_factory.producer.ParserFactoryProducer ..> com.abstract_factory.factory_clients.NYParserFactory
+com.abstract_factory.producer.ParserFactoryProducer ..> com.abstract_factory.factory_clients.TWParserFactory
+com.abstract_factory.producer.ParserFactoryProducer ..> com.abstract_factory.interfaces.AbstractParserFactory
+@enduml

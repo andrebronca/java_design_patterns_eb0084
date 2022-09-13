@@ -1,0 +1,3 @@
+
+module abstract_factory {
+}
