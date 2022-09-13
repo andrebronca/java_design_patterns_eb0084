@@ -1,0 +1,41 @@
+@startuml
+class com.memento.CareTaker{
+  - final Map<String, Memento> savepointStorage
+  + void saveMemento(Memento memento, String savepointName)
+  + Memento getMemento(String savepointName)
+  + void clearSavepoints()
+}
+class com.memento.Memento{
+  - double x
+  - double y
+  + Memento(double x, double y)
+  + double getX()
+  + double getY()
+}
+class com.memento.Originator{
+  - double x
+  - double y
+  - String lastUndoSavepoint
+  CareTaker careTaker
+  + Originator(double x, double y, CareTaker caretaker)
+  + double getX()
+  + double getY()
+  + void setX(double x)
+  + void setY(double y)
+  + void createSavepoint(String savepointName)
+  + void undo()
+  + void undo(String savepointName)
+  + void undoAll()
+  - void setOriginatorState(String savepointName)
+  + String toString()
+}
+class com.memento.app.TestMementoPattern{
+  + static void main(String[] args) [
+    * CareTaker
+    * Originator
+}
+com.memento.app.TestMementoPattern ..> com.memento.CareTaker
+com.memento.app.TestMementoPattern ..> com.memento.Originator
+com.memento.Originator -- com.memento.CareTaker
+com.memento.CareTaker -- com.memento.Memento
+@enduml

@@ -1,0 +1,28 @@
+
+package com.memento;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 13/set/2022
+ * @author andrebronca
+ */
+public class CareTaker {
+  private final Map<String, Memento> savepointStorage = new HashMap<>();
+  
+  public void saveMemento(Memento memento, String savepointName){
+    System.out.println("Saving state...."+ savepointName);
+    savepointStorage.put(savepointName, memento);
+  }
+  
+  public Memento getMemento(String savepointName){
+    System.out.println("Undo at ..."+ savepointName);
+    return savepointStorage.get(savepointName);
+  }
+  
+  public void clearSavepoints(){
+    System.out.println("Clearing all save points...");
+    savepointStorage.clear();
+  }
+}
