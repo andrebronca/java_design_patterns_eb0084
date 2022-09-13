@@ -1,0 +1,14 @@
+@startuml
+abstract class com.template.ConnectionTemplate
+annotation java.lang.Override
+class com.template.app.TestTemplatePattern
+class com.template.connections.MySqlCSVCon
+class com.template.connections.OracleTxtCon
+com.template.app.TestTemplatePattern ..> com.template.ConnectionTemplate
+com.template.app.TestTemplatePattern ..> com.template.connections.MySqlCSVCon
+com.template.app.TestTemplatePattern ..> com.template.connections.OracleTxtCon
+com.template.connections.MySqlCSVCon --|> com.template.ConnectionTemplate
+com.template.connections.MySqlCSVCon ..> java.lang.Override
+com.template.connections.OracleTxtCon --|> com.template.ConnectionTemplate
+com.template.connections.OracleTxtCon ..> java.lang.Override
+@enduml
