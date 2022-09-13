@@ -1,0 +1,20 @@
+@startuml
+class com.prototype.app.TestPrototypePattern
+class com.prototype.domain.User
+class com.prototype.implementation.AccessControl
+class com.prototype.provider.AccessControlProvider
+class java.util.HashMap
+class java.util.Map
+interface com.prototype.interfaces.Prototype
+interface java.lang.Cloneable
+com.prototype.app.TestPrototypePattern ..> com.prototype.domain.User
+com.prototype.app.TestPrototypePattern ..> com.prototype.implementation.AccessControl
+com.prototype.app.TestPrototypePattern ..> com.prototype.provider.AccessControlProvider
+com.prototype.domain.User ..> com.prototype.implementation.AccessControl
+com.prototype.implementation.AccessControl --|> com.prototype.interfaces.Prototype
+com.prototype.provider.AccessControlProvider ..> com.prototype.implementation.AccessControl
+com.prototype.provider.AccessControlProvider ..> java.util.HashMap
+com.prototype.provider.AccessControlProvider ..> java.util.Map
+com.prototype.interfaces.Prototype ..> com.prototype.implementation.AccessControl
+com.prototype.interfaces.Prototype --|> java.lang.Cloneable
+@enduml
