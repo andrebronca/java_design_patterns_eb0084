@@ -1,0 +1,35 @@
+@startuml
+abstract class com.factory.abstracts.DisplayService
+class com.factory.app.TestFactoryMethodPattern
+class com.factory.classes.ErrorXMLParser
+class com.factory.classes.FeedbackXML
+class com.factory.classes.OrderXMLParser
+class com.factory.classes.ResponseXMLParser
+class com.factory.services.ErrorXMLDisplayService
+class com.factory.services.FeedbackXMLDisplayService
+class com.factory.services.OrderXMLDisplayService
+class com.factory.services.ResponseXMLDisplayService
+interface com.factory.interfaces.XMLParser
+com.factory.abstracts.DisplayService ..> com.factory.interfaces.XMLParser
+com.factory.app.TestFactoryMethodPattern ..> com.factory.abstracts.DisplayService
+com.factory.app.TestFactoryMethodPattern ..> com.factory.services.ErrorXMLDisplayService
+com.factory.app.TestFactoryMethodPattern ..> com.factory.services.FeedbackXMLDisplayService
+com.factory.app.TestFactoryMethodPattern ..> com.factory.services.OrderXMLDisplayService
+com.factory.app.TestFactoryMethodPattern ..> com.factory.services.ResponseXMLDisplayService
+com.factory.classes.ErrorXMLParser --|> com.factory.interfaces.XMLParser
+com.factory.classes.FeedbackXML --|> com.factory.interfaces.XMLParser
+com.factory.classes.OrderXMLParser --|> com.factory.interfaces.XMLParser
+com.factory.classes.ResponseXMLParser --|> com.factory.interfaces.XMLParser
+com.factory.services.ErrorXMLDisplayService --|> com.factory.abstracts.DisplayService
+com.factory.services.ErrorXMLDisplayService ..> com.factory.classes.ErrorXMLParser
+com.factory.services.ErrorXMLDisplayService ..> com.factory.interfaces.XMLParser
+com.factory.services.FeedbackXMLDisplayService --|> com.factory.abstracts.DisplayService
+com.factory.services.FeedbackXMLDisplayService ..> com.factory.classes.FeedbackXML
+com.factory.services.FeedbackXMLDisplayService ..> com.factory.interfaces.XMLParser
+com.factory.services.OrderXMLDisplayService --|> com.factory.abstracts.DisplayService
+com.factory.services.OrderXMLDisplayService ..> com.factory.classes.OrderXMLParser
+com.factory.services.OrderXMLDisplayService ..> com.factory.interfaces.XMLParser
+com.factory.services.ResponseXMLDisplayService --|> com.factory.abstracts.DisplayService
+com.factory.services.ResponseXMLDisplayService ..> com.factory.classes.ResponseXMLParser
+com.factory.services.ResponseXMLDisplayService ..> com.factory.interfaces.XMLParser
+@enduml
