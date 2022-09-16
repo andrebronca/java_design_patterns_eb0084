@@ -3,6 +3,7 @@ package com.state.model;
 import com.state.implement.RoboticCook;
 import com.state.implement.RoboticOff;
 import com.state.implement.RoboticOn;
+import com.state.implement.RoboticStandby;
 import com.state.interfaces.RoboticState;
 
 /**
@@ -15,12 +16,14 @@ public class Robot implements RoboticState {
   private RoboticState roboticOn;
   private RoboticState roboticCook;
   private RoboticState roboticOff;
+  private RoboticState roboticStandby;
   private RoboticState state;
 
   public Robot() {
     this.roboticOn = new RoboticOn(this);
     this.roboticCook = new RoboticCook(this);
     this.roboticOff = new RoboticOff(this);
+    this.roboticStandby = new RoboticStandby(this);
     this.state = roboticOn;
   }
 
@@ -73,6 +76,14 @@ public class Robot implements RoboticState {
 
   public void setState(RoboticState state) {
     this.state = state;
+  }
+
+  public RoboticState getRoboticStandby() {
+    return roboticStandby;
+  }
+
+  public void setRoboticStandby(RoboticState roboticStandby) {
+    this.roboticStandby = roboticStandby;
   }
 
 }
