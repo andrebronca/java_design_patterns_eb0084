@@ -1,5 +1,7 @@
-package com.composite;
+package com.visitor.composite.concrete;
 
+import com.visitor.composite.HtmlTag;
+import com.visitor.interfaces.Visitor;
 
 /**
  * 08/set/2022
@@ -44,5 +46,19 @@ public class HtmlElement extends HtmlTag{
         System.out.println(startTag +""+ tagBody +""+ endTag);
     }
 
+  @Override
+  public String getStartTag() {
+    return startTag;
+  }
+
+  @Override
+  public String getEndTag() {
+    return endTag;
+  }
+
+  @Override
+  public void accept(Visitor visitor) {
+    visitor.visit(this);
+  }
     
 }

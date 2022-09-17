@@ -1,0 +1,39 @@
+@startuml
+abstract class com.visitor.composite.HtmlTag
+annotation java.lang.Override
+class com.visitor.app.TestVisitorPattern
+class com.visitor.composite.concrete.HtmlElement
+class com.visitor.composite.concrete.HtmlParentElement
+class com.visitor.concrete.CssClassVisitor
+class com.visitor.concrete.StyleVisitor
+class java.util.ArrayList
+class java.util.List
+interface com.visitor.interfaces.Element
+interface com.visitor.interfaces.Visitor
+com.visitor.composite.HtmlTag ..> java.util.List
+com.visitor.composite.HtmlTag --|> com.visitor.interfaces.Element
+com.visitor.app.TestVisitorPattern ..> com.visitor.composite.HtmlTag
+com.visitor.app.TestVisitorPattern ..> com.visitor.composite.concrete.HtmlElement
+com.visitor.app.TestVisitorPattern ..> com.visitor.composite.concrete.HtmlParentElement
+com.visitor.app.TestVisitorPattern ..> com.visitor.concrete.CssClassVisitor
+com.visitor.app.TestVisitorPattern ..> com.visitor.concrete.StyleVisitor
+com.visitor.app.TestVisitorPattern ..> com.visitor.interfaces.Visitor
+com.visitor.composite.concrete.HtmlElement --|> com.visitor.composite.HtmlTag
+com.visitor.composite.concrete.HtmlElement ..> java.lang.Override
+com.visitor.composite.concrete.HtmlElement ..> com.visitor.interfaces.Visitor
+com.visitor.composite.concrete.HtmlParentElement --|> com.visitor.composite.HtmlTag
+com.visitor.composite.concrete.HtmlParentElement ..> java.lang.Override
+com.visitor.composite.concrete.HtmlParentElement ..> java.util.ArrayList
+com.visitor.composite.concrete.HtmlParentElement ..> java.util.List
+com.visitor.composite.concrete.HtmlParentElement ..> com.visitor.interfaces.Visitor
+com.visitor.concrete.CssClassVisitor ..> java.lang.Override
+com.visitor.concrete.CssClassVisitor ..> com.visitor.composite.concrete.HtmlElement
+com.visitor.concrete.CssClassVisitor ..> com.visitor.composite.concrete.HtmlParentElement
+com.visitor.concrete.CssClassVisitor --|> com.visitor.interfaces.Visitor
+com.visitor.concrete.StyleVisitor ..> java.lang.Override
+com.visitor.concrete.StyleVisitor ..> com.visitor.composite.concrete.HtmlElement
+com.visitor.concrete.StyleVisitor ..> com.visitor.composite.concrete.HtmlParentElement
+com.visitor.concrete.StyleVisitor --|> com.visitor.interfaces.Visitor
+com.visitor.interfaces.Visitor ..> com.visitor.composite.concrete.HtmlElement
+com.visitor.interfaces.Visitor ..> com.visitor.composite.concrete.HtmlParentElement
+@enduml

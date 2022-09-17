@@ -1,5 +1,6 @@
-package com.composite;
+package com.visitor.composite;
 
+import com.visitor.interfaces.Element;
 import java.util.List;
 
 /**
@@ -12,11 +13,14 @@ import java.util.List;
  * 
  * Algumas mudanças para atender ao design visitor. 17/set/2022
  */
-public abstract class HtmlTag {
+public abstract class HtmlTag implements Element {
     
     public abstract String getTagName();
     public abstract void setStartTag(String tag);
     public abstract void setEndTag(String tag);
+    
+    public abstract String getStartTag();
+    public abstract String getEndTag();
     
     public void setTagBody(String tagBody){
         throw new UnsupportedOperationException("Current operation is not "

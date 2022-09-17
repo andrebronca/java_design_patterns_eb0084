@@ -1,6 +1,7 @@
-package com.composite;
+package com.visitor.composite.concrete;
 
-
+import com.visitor.composite.HtmlTag;
+import com.visitor.interfaces.Visitor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +10,7 @@ import java.util.List;
  *
  * @author andre
  *
- * Alteração para o design Visitor: 17/set/2022 Vou aplicar tudo no módulo
- * visitor, pois estava dando erro de referência cíclica.
+ * Alteração para o design Visitor: 17/set/2022
  */
 public class HtmlParentElement extends HtmlTag {
 
@@ -63,6 +63,21 @@ public class HtmlParentElement extends HtmlTag {
       tag.generateHtml();
     }
     System.out.println(endTag);
+  }
+
+  @Override
+  public String getStartTag() {
+    return startTag;
+  }
+
+  @Override
+  public String getEndTag() {
+    return endTag;
+  }
+
+  @Override
+  public void accept(Visitor visitor) {
+    visitor.visit(this);
   }
 
 }
